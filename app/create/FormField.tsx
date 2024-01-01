@@ -1,12 +1,22 @@
-import React from "react";
-import {
-  FormSectionType,
-  FormFieldType,
-  FormFieldInputType,
-} from "./FormSectionTypes";
+"use client";
+import React, { useState } from "react";
+import { FormFieldType, FormFieldInputType } from "./FormSectionTypes";
 import { Label } from "./Label";
-import { Input } from "@/components/ui/input";
 import DatePicker from "./DatePicker";
+import InputWithTranslator from "./InputWithTranslator";
+
+const translate = async ({ text }: { text: string }) => {
+  try {
+    const translateResponse = await fetch(
+      `https://inputtools.google.com/request?text=${text}&itc=mr-t-i0-und&num=5&cp=0&cs=1&ie=utf-8&oe=utf-8`
+    );
+    const translateResponseJson = await translateResponse.json();
+    console.log(translateResponseJson);
+    return translateResponseJson;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 const FormInput = ({ inputData }: { inputData: FormFieldInputType }) => {
   const { name, placeholder, type, values } = inputData;
@@ -16,7 +26,11 @@ const FormInput = ({ inputData }: { inputData: FormFieldInputType }) => {
   if (type == "date")
     return <DatePicker onDateChange={(data: any) => console.log(data)} />;
 
-  return <Input name={inputData.name} placeholder={placeholder} />;
+  return (
+    <>
+      <InputWithTranslator placeholder={placeholder} />
+    </>
+  );
 };
 
 function FormField({ fieldData }: { fieldData: FormFieldType }) {

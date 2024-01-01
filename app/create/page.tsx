@@ -3,15 +3,15 @@ import ImageSelector from "./ImageSelctor";
 import { Input } from "@/components/ui/input";
 import { biodataForm } from "./FormData";
 import FormSection from "./FormSection";
+import InputWithTranslator from "./InputWithTranslator";
 
 const Header = () => {
   return (
     <div className="w-full flex flex-col items-center md:max-w-[400px]">
       <ImageSelector />
-      <Input
-        defaultValue={"|| श्री गणेशाय नम: ||"}
-        type="text"
-        className="text-center mb-8"
+      <InputWithTranslator
+        props={{ defaultValue: "|| श्री गणेशाय नम: ||", className: "mb-8" }}
+        inputClassName="text-center"
       />
     </div>
   );
