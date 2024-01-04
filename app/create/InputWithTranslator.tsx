@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Command, CommandGroup, CommandItem } from "@/components/ui/command";
 
 import {
@@ -31,10 +31,12 @@ function InputWithTranslator({
   props,
   inputClassName,
   placeholder,
+  onChange,
 }: {
   props?: PrimitiveDivProps;
   inputClassName?: string;
   placeholder?: string;
+  onChange?: any;
 }) {
   const [translatedOptions, setTranslatedOptions] = useState([]);
 
@@ -47,6 +49,10 @@ function InputWithTranslator({
   };
 
   const [inputText, setInputText] = useState(props?.defaultValue || "");
+
+  useEffect(() => {
+    if (onChange) onChange(inputText);
+  }, [inputText]);
 
   const [open, setOpen] = useState(false);
 
@@ -64,7 +70,7 @@ function InputWithTranslator({
         placeholder={placeholder}
       />
       <Popover open={true} onOpenChange={setOpen}>
-        <PopoverTrigger asChild className="absolute top-0 right-0">
+        <PopoverTrigger asChild className="absolute top-0 right-0 z-[100]">
           <Button
             variant="ghost"
             role="combobox"
@@ -75,7 +81,7 @@ function InputWithTranslator({
           </Button>
         </PopoverTrigger>
         <PopoverContent
-          className={`w-[200px] p-0 ${
+          className={`w-[200px] p-0 z-[100] ${
             open && translatedOptions.length > 0 ? "visible" : "hidden"
           }`}
         >

@@ -20,7 +20,7 @@ function Template() {
         />
         <Dialog>
           <DialogTrigger asChild>
-            <Button variant="outline">
+            <Button variant="outline" className="flex items-center">
               <span>View Design</span>
               <span className="ml-2">
                 <Eye strokeWidth={"1px"} size={"20px"} />
