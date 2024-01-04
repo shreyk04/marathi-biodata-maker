@@ -83,7 +83,7 @@ function InputWithTranslator({
             <CommandGroup>
               {translatedOptions.map((option) => (
                 <CommandItem
-                  onSelect={(currentValue) => {
+                  onSelect={(currentValue:any) => {
                     setInputText(currentValue);
                     setOpen(false);
                   }}

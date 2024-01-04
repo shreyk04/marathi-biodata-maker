@@ -25,7 +25,7 @@ const FormInput = ({ inputData }: { inputData: FormFieldInputType }) => {
 
   if (type == "date")
     return <DatePicker onDateChange={(data: any) => console.log(data)} />;
-
+   
   return (
     <>
       <InputWithTranslator placeholder={placeholder} />

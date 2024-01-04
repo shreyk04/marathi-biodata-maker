@@ -27,7 +27,7 @@ function Template() {
               </span>
             </Button>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-[425px]">
+          <DialogContent className="sm:max-w-[325px]">
             <DialogHeader>
               <DialogTitle>With Photo</DialogTitle>
               <DialogDescription>
