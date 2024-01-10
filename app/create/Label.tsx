@@ -43,7 +43,9 @@ export const Label = ({ labels }: { labels: string[] }) => {
           >
             <Check size={"16"} />
           </Button>
-          <InputWithTranslator onChange={(text: string) => setNewInput(text)} />
+          <InputWithTranslator onChange={(text: string) => setNewInput(text)} 
+
+          />
         </div>
       </SelectContent>
     </Select>

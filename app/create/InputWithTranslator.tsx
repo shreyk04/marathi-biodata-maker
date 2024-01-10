@@ -32,12 +32,16 @@ function InputWithTranslator({
   inputClassName,
   placeholder,
   onChange,
+  
 }: {
   props?: PrimitiveDivProps;
   inputClassName?: string;
   placeholder?: string;
   onChange?: any;
 }) {
+
+  const [open, setOpen] = useState(false);
+
   const [translatedOptions, setTranslatedOptions] = useState([]);
 
   const handleInputChange = async (e: any) => {
@@ -46,15 +50,17 @@ function InputWithTranslator({
     const result = await translate({ text });
     setTranslatedOptions(result?.[1]?.[0]?.[1] || []);
     setOpen(true);
-  };
+    // setOpen(result?.[1]?.[0]?.[1]?.length > 0);
 
+  };
+ 
   const [inputText, setInputText] = useState(props?.defaultValue || "");
 
   useEffect(() => {
     if (onChange) onChange(inputText);
   }, [inputText]);
-
-  const [open, setOpen] = useState(false);
+  console.log("Open:", open);
+  console.log("Translated Options:", translatedOptions);
 
   // useEffect(() => {
   //   if (props.defaultValue) setInputText(props.defaultValue as string);
@@ -66,11 +72,12 @@ function InputWithTranslator({
         className={cn(inputClassName)}
         onChange={handleInputChange}
         onFocus={handleInputChange}
+
         value={inputText}
         placeholder={placeholder}
       />
-      <Popover open={true} onOpenChange={setOpen}>
-        <PopoverTrigger asChild className="absolute top-0 right-0 z-[100]">
+      <Popover open={open} onOpenChange={setOpen}  >
+        <PopoverTrigger asChild className="absolute top-0 right-0 z-[100]" >
           <Button
             variant="ghost"
             role="combobox"
@@ -81,7 +88,7 @@ function InputWithTranslator({
           </Button>
         </PopoverTrigger>
         <PopoverContent
-          className={`w-[200px] p-0 z-[100] ${
+          className={`w-[200px] p-0 z-[101] ${
             open && translatedOptions.length > 0 ? "visible" : "hidden"
           }`}
         >
@@ -106,3 +113,4 @@ function InputWithTranslator({
 }
 
 export default InputWithTranslator;
+                                                                                                
