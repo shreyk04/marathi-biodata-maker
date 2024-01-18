@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { biodataForm } from "./FormData";
 import FormSection from "./FormSection";
 import InputWithTranslator from "./InputWithTranslator";
+import InputT from "./InputT";
 
 const Header = () => {
   return (
@@ -13,6 +14,8 @@ const Header = () => {
         props={{ defaultValue: "|| श्री गणेशाय नम: ||", className: "mb-8" }}
         inputClassName="text-center"
       />
+      {/* <InputWithTranslator/> */}
+      <InputT/>
     </div>
   );
 };
