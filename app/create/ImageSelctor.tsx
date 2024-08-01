@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { EditIcon, PlusCircle, TrashIcon } from "lucide-react";
 import {
@@ -12,6 +12,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import Image from "next/image";
+import { useForm } from "../Context/store";
 const imgBaseSrc = "/images/ganapati-bappa";
 
 function ImageSelectorModal({
@@ -41,15 +42,15 @@ function ImageSelectorModal({
                 className="flex flex-col justify-between items-center gap-4"
                 key={index}
               >
-                <Image
+                <img
                   src={`${imgBaseSrc}/${image}`}
                   alt="ganapati-bappa"
-                  width={100}
-                  height={100}
                   className="w-24 h-24 object-contain"
                 />
 
-                {/* <Image key={index} src={imageSrc + image} className="w-8" /> */}
+
+
+                {/* <Image key={index} src={imgBaseSrc + image} className="w-8" alt="ganapati-bappa" /> */}
                 <Button
                   variant={"outline"}
                   key={index}
@@ -91,11 +92,23 @@ function ImageSelector() {
     setSelectedImage(false);
   };
 
+  const { setForm, form } = useForm();
+  useEffect(() => {
+    const newForm = {
+
+      selectedImage
+    }
+    const oldForm = structuredClone(form);
+    // localStorage.setItem
+    setForm({ ...oldForm, ...newForm });
+  }, [selectedImage])
+
+
   return (
     <div className="flex flex-col items-center justify-center">
       {selectedImage && (
         <>
-          <Image
+          <img
             src={selectedImage as string}
             alt=""
             height={100}

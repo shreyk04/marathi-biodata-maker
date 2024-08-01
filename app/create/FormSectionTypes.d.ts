@@ -1,16 +1,17 @@
 
 export type FormFieldInputType = {
-  name: string;
   placeholder?: string;
-  type?: "input" | "date" | "select"
+  type?: "input" | "date" | "select"|"number"|"tel"
   values?: string[]
 
 
 }
 
 export type FormFieldType = {
+  id: string;
   labels: string[];
   input: FormFieldInputType;
+  isLabelStatic?: boolean;
 };
 
 

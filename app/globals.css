@@ -62,3 +62,21 @@
     @apply bg-background text-foreground;
   }
 }
+
+.input {
+  width: 100%;
+  /* padding: 12px 16px; */
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-family: inherit;
+  border: 1px solid #ccc;
+}
+
+.input::placeholder {
+  opacity: 0.5;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #1778f2;
+}

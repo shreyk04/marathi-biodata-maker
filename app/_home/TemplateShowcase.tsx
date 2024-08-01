@@ -8,6 +8,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Eye } from "lucide-react";
+import Link from "next/link";
 
 function Template() {
   return (
@@ -41,6 +42,14 @@ function Template() {
                 alt=""
               />
             </div>
+            <Link href={"/create"} >
+              <Button variant="outline" className="flex items-center">
+                <span>Customize</span>
+
+              </Button>
+            </Link>
+
+
           </DialogContent>
         </Dialog>
       </div>

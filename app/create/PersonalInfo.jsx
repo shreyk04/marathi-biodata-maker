@@ -29,16 +29,16 @@ function PersonalInfo() {
             options={[
               {
                 value: "नाव",
-                label: "नाव",
+                label: "नाव"
               },
               {
                 value: "मुलाचे नाव",
-                label: "मुलाचे नाव",
+                label: "मुलाचे नाव"
               },
               {
                 value: "मुलीचे नाव",
-                label: "मुलीचे नाव",
-              },
+                label: "मुलीचे नाव"
+              }
             ]}
           />
           <Input placeholder="संपूर्ण नाव" className="mb-6" />
@@ -57,16 +57,16 @@ function PersonalInfo() {
               options={[
                 {
                   value: "जन्म वेळ ",
-                  label: "जन्म वेळ ",
+                  label: "जन्म वेळ "
                 },
                 {
                   value: "जन्म वार",
-                  label: "जन्म वार ",
+                  label: "जन्म वार "
                 },
                 {
                   value: "जन्म  वेळ व  वार",
-                  label: "जन्म  वेळ व  वार",
-                },
+                  label: "जन्म  वेळ व  वार"
+                }
               ]}
             />
             <Input placeholder="जन्माची वेळ " className="mb-6" />
@@ -83,13 +83,12 @@ function PersonalInfo() {
               options={[
                 {
                   value: "जन्म स्थळ",
-                  label: "जन्म स्थळ",
+                  label: "जन्म स्थळ"
                 },
                 {
                   value: "जन्म ठिकाण",
-                  label: "जन्म ठिकाण",
-                },
-            
+                  label: "जन्म ठिकाण"
+                }
               ]}
             />
             <Input placeholder="जन्म स्थळ" className="mb-6" />
@@ -106,16 +105,16 @@ function PersonalInfo() {
               options={[
                 {
                   value: "नावरस नाव",
-                  label: "नावरस नाव",
+                  label: "नावरस नाव"
                 },
                 {
                   value: "रास नाव",
-                  label: "रास नाव",
+                  label: "रास नाव"
                 },
                 {
                   value: "जन्म नाव",
-                  label: "जन्म नाव",
-                },
+                  label: "जन्म नाव"
+                }
               ]}
             />
             <Input placeholder="नावरस नाव/जन्म नाव" className="mb-6" />
@@ -132,16 +131,16 @@ function PersonalInfo() {
               options={[
                 {
                   value: "धर्म-जात",
-                  label: "धर्म-जात",
+                  label: "धर्म-जात"
                 },
                 {
                   value: "धर्म",
-                  label: "धर्म",
+                  label: "धर्म"
                 },
                 {
                   value: "जात",
-                  label: "जात",
-                },
+                  label: "जात"
+                }
               ]}
             />
             <Input placeholder="धर्म-जात" className="mb-6" />

@@ -1,10 +1,18 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+// import { Inter } from 'next/font/google'
+import { Tiro_Devanagari_Marathi } from 'next/font/google'
 import './globals.css'
 import Navbar from "@/components/navbar";
 import { cn } from "@/lib/utils";
+import { FormProvider } from './Context/store';
+import { useState } from 'react';
+import { TemplateProvider } from './Context/TemplateContext';
 
-const inter = Inter({ subsets: ["latin"] });
+
+
+const inter = Tiro_Devanagari_Marathi({
+  subsets: ["devanagari"], weight: "400"
+});
 
 export const metadata: Metadata = {
   title: "Marathi Biodata Maker",
@@ -20,7 +28,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={cn(inter.className, "bg-slate-100")}>
         <Navbar />
-        <main className="md:w-[1200px] m-auto">{children}</main>
+        <TemplateProvider>
+          <main className="w-full">
+            {children}
+          </main>
+        </TemplateProvider>
       </body>
     </html>
   );
