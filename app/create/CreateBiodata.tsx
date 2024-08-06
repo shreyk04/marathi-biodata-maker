@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { biodataForm } from "./FormData"; // Ensure the path is correct
 import FormSection from "./FormSection"; // Ensure the path is correct
 import InputWithTranslator from "./InputWithTranslator"; // Ensure the path is correct
@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { getSavedFrom } from "./utils";
 import { useTemplate } from "../Context/TemplateContext";
+import UploadPhoto from "./UploadPhoto";
 
 const Header = () => {
     return (
@@ -54,6 +55,8 @@ const CreateBiodata = () => {
                         <FormSection sectionData={sectionData} key={index} />
                     ))}
                 </div>
+                <UploadPhoto />
+
                 {/* <Link href={"/format"}> */}
                 <Button type="submit" className="mt-5">Submit</Button>
                 {/* </Link> */}

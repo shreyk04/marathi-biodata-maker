@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { FormProvider } from './Context/store';
 import { useState } from 'react';
 import { TemplateProvider } from './Context/TemplateContext';
+import { ImageProvider } from './Context/ImageContext';
 
 
 
@@ -29,9 +30,13 @@ export default function RootLayout({
       <body className={cn(inter.className, "bg-slate-100")}>
         <Navbar />
         <TemplateProvider>
-          <main className="w-full">
-            {children}
-          </main>
+          <ImageProvider>
+
+
+            <main className="w-full">
+              {children}
+            </main>
+          </ImageProvider>
         </TemplateProvider>
       </body>
     </html>

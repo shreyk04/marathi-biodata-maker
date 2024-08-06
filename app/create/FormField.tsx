@@ -9,6 +9,7 @@ import { useForm } from "../Context/store";
 import { getSavedFrom } from "./utils";
 import { DateSelector } from "./DateSelector";
 import MobileInput from "./MobileInput";
+import UploadPhoto from "./UploadPhoto";
 
 const translate = async ({ text }: { text: string }) => {
   try {
@@ -30,9 +31,11 @@ const FormInput = ({ inputData, onChange, initialValue }: { inputData: FormField
 
   if (type == "date")
     // return <DatePicker onDateChange={(data: any) => onChange(data)} />;
-    return <DateSelector onDateChange={(data: any) => onChange(data)} />
+    return <DateSelector onDateChange={(data: any) => onChange(data)} props={{ defaultValue: initialValue }} />
 
-  if (type === "tel") return <MobileInput placeholder={placeholder} onMobileNumberChange={(data: any) => onChange(data)} />;
+  if (type === "tel") return <MobileInput props={{ defaultValue: initialValue }} placeholder={placeholder} onMobileNumberChange={(data: any) => onChange(data)} />;
+  // if (type === "file") return <UploadPhoto />;
+
 
   return (
     <>

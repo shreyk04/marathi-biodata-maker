@@ -144,31 +144,33 @@ export default function Home() {
                 <DialogTrigger asChild>
                   <Button variant="outline" className="flex items-center" onClick={() => handleClick(id)}>
                     <span>View Design</span>
-                    <span className="ml-2">
+                    <span className="ml-2" >
                       <Eye strokeWidth={"1px"} size={"20px"} />
                     </span>
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="sm:max-w-[325px]">
+                <DialogContent className="sm:max-w-[505px] h-full ">
                   <DialogHeader>
-                    <DialogTitle>With Photo</DialogTitle>
+                    {/* <DialogTitle>With Photo</DialogTitle> */}
                     <DialogDescription>
                       This is how it would look like
                     </DialogDescription>
                   </DialogHeader>
-                  <div className="grid gap-4 py-4">
-                    <img
+                  <div className="grid gap-4">
+                    {/* <img
                       className="w-full h-full mb-4 shadow-lg rounded-md"
                       src="https://marathibiodatamaker.com/images/formats/marathi-biodata-maker.webp"
                       alt=""
-                    />
-                  </div>
-                  {/* <Link href={"/create"} > */}
-                  <Button variant="outline" className="flex items-center" >
-                    <span>Customize</span>
+                    /> */}
+                    < Component key={key} {...template.props} />
 
-                  </Button>
-                  {/* </Link> */}
+                  </div>
+                  <Link href={"/create"} >
+                    <Button variant="outline" className="flex items-center"  >
+                      <span>Customize</span>
+
+                    </Button>
+                  </Link>
 
 
                 </DialogContent>

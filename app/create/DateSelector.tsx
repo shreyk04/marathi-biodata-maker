@@ -13,7 +13,10 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 
-export function DateSelector({ onDateChange }: { onDateChange: any }) {
+export function DateSelector({ onDateChange, props }: { onDateChange: any, props: any }) {
+    // const defaultDate = props?.defaultValue;
+    // console.log("defaultDate ", defaultDate);
+
     const [date, setDate] = React.useState<Date>()
     // console.log(date);
     const marathiMonths = [

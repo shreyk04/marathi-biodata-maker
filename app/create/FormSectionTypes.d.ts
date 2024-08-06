@@ -3,6 +3,7 @@ export type FormFieldInputType = {
   placeholder?: string;
   type?: "input" | "date" | "select"|"number"|"tel"
   values?: string[]
+// value?:string
 
 
 }
@@ -19,6 +20,10 @@ export  type FormSectionType = {
   name: string;
   titles: string[];
   fields: FormFieldType[];
+};
+
+type FormData = {
+  [key: string]: FormFieldData;
 };
 
 

@@ -27,16 +27,6 @@ export const Label = ({ labels, onLabelChange, isLabelStatic, initialValue }: { 
 
 
 
-  const { setForm, form } = useForm();
-  // useEffect(() => {
-  //   const newForm = {
-
-  //     value
-  //   }
-  //   const oldForm = structuredClone(form);
-  //   // localStorage.setItem
-  //   setForm({ ...oldForm, ...newForm });
-  // }, [value])
   return (
     <Select value={value} onValueChange={(value: string) => setValue(value)}>
       <SelectTrigger className="p-0 w-full border-none   font-medium    text-red-600 text-base focus:outline-none">

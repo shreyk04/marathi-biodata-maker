@@ -7,6 +7,7 @@ import { FormProvider } from "../Context/store";
 const Page = () => {
   return (
     <FormProvider>
+
       <CreateBiodata />
     </FormProvider>
   );
