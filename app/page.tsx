@@ -183,8 +183,7 @@ export default function Home() {
 
       </div>
       {/* <Format /> */}
-      {/* template showcase */}
-      <TemplateShowcase />
+     
       {/* importance section */}
       <Importance />
     </div>
