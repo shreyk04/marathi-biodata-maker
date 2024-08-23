@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { biodataForm } from "./FormData"; // Ensure the path is correct
 import FormSection from "./FormSection"; // Ensure the path is correct
 import InputWithTranslator from "./InputWithTranslator"; // Ensure the path is correct
-import { FormContext, useForm } from "../Context/store"; // Ensure the path is correct
+import { useForm } from "../Context/store"; // Ensure the path is correct
 import ImageSelector from "./ImageSelctor";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { getSavedFrom } from "./utils";

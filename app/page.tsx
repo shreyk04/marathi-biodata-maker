@@ -1,23 +1,18 @@
 "use client"
-
 import { Button, buttonVariants } from "@/components/ui/button";
 import { MoveRight } from "lucide-react";
 import Importance from "./_home/Importance";
-import TemplateShowcase from "./_home/TemplateShowcase";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import Format from "./format/page";
 import Template from "./template/page";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Eye } from "lucide-react";
-import { useState } from "react";
 import { useTemplate } from "./Context/TemplateContext";
 export const Templates = {
   "template1": {
@@ -183,7 +178,7 @@ export default function Home() {
 
       </div>
       {/* <Format /> */}
-     
+
       {/* importance section */}
       <Importance />
     </div>
