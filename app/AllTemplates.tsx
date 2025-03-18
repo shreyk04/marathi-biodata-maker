@@ -32,7 +32,8 @@ export default function AllTemplates({withPhoto}:{withPhoto: boolean}) {
   }
 
 
-const isUserFormAvailable=form?.name
+// const isUserFormAvailable=form?.name
+const isUserFormAvailable=false
 
 
 
