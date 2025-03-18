@@ -5,7 +5,7 @@ function MobileInput({ onMobileNumberChange, props }: { onMobileNumberChange: an
     // console.log("mobile number is #### ", defaultMob);
 
     const [mobileNumber, setMobileNumber] = useState(props?.defaultValue || "")
-    console.log("mobile number is #### ", mobileNumber);
+    // console.log("mobile number is #### ", mobileNumber);
 
     const handleMobChange = (e: any) => {
         const value = e.target.value;
@@ -13,7 +13,7 @@ function MobileInput({ onMobileNumberChange, props }: { onMobileNumberChange: an
 
             setMobileNumber(value)
         }
-        console.log("mobile number is #### ", mobileNumber);
+        // console.log("mobile number is #### ", mobileNumber);
 
     }
     useEffect(() => {

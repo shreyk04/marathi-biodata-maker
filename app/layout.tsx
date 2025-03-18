@@ -1,18 +1,17 @@
-import type { Metadata } from 'next'
+import type { Metadata } from "next";
 // import { Inter } from 'next/font/google'
-import { Tiro_Devanagari_Marathi } from 'next/font/google'
-import './globals.css'
+import { Tiro_Devanagari_Marathi } from "next/font/google";
+import "./globals.css";
 import Navbar from "@/components/navbar";
 import { cn } from "@/lib/utils";
-import { FormProvider } from './Context/store';
-import { useState } from 'react';
-import { TemplateProvider } from './Context/TemplateContext';
-import { ImageProvider } from './Context/ImageContext';
-
-
+import { FormProvider } from "./_context/store";
+import { useState } from "react";
+import { TemplateProvider } from "./_context/TemplateContext";
+import { ImageProvider } from "./_context/ImageContext";
 
 const inter = Tiro_Devanagari_Marathi({
-  subsets: ["devanagari"], weight: "400"
+  subsets: ["devanagari"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -29,15 +28,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={cn(inter.className, "bg-slate-100")}>
         <Navbar />
-        <TemplateProvider>
-          <ImageProvider>
-
-
-            <main className="w-full">
-              {children}
-            </main>
-          </ImageProvider>
-        </TemplateProvider>
+        <FormProvider>
+          <TemplateProvider>
+            <ImageProvider>
+              <main className="w-full">{children}</main>
+            </ImageProvider>
+          </TemplateProvider>
+        </FormProvider>
       </body>
     </html>
   );

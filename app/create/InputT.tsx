@@ -7,8 +7,6 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Languages } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { PrimitiveDivProps } from "@radix-ui/react-dialog";
 
@@ -70,14 +68,14 @@ function InputT({
       />
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild className="absolute top-0 right-0 z-[100]">
-          <Button
+          {/* <Button
             variant="ghost"
             role="combobox"
             aria-expanded={open}
             className="w-fit inline-block opacity-50"
           >
             <Languages size={16} />
-          </Button>
+          </Button> */}
         </PopoverTrigger>
         <PopoverContent
           className={`w-[200px] p-0 z-[101] ${open && translatedOptions.length > 0 ? "visible" : "hidden"

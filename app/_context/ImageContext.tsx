@@ -1,10 +1,11 @@
-"use client"
+"use client";
 
 import { createContext, ReactNode, useContext, useState } from "react";
 
 interface ImageContextType {
     imgUrl: string | null;
     setImgUrl: (url: string | null) => void;
+    
 }
 
 const ImageContext = createContext<ImageContextType | undefined>(undefined);

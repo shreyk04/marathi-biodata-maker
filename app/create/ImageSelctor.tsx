@@ -6,13 +6,10 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
-import Image from "next/image";
-import { useForm } from "../Context/store";
+
 const imgBaseSrc = "/images/ganapati-bappa";
 
 function ImageSelectorModal({
@@ -22,120 +19,119 @@ function ImageSelectorModal({
   handleImageClick,
 }: {
   visible: boolean;
-  onClose: any;
-  images: any[];
-  handleImageClick: any;
+  onClose: () => void;
+  images: string[];
+  handleImageClick: (index: number) => void;
 }) {
   return (
-    <>
-      <Dialog open={visible} onOpenChange={() => onClose()}>
-        <DialogContent className="md:max-w-[525px]">
-          <DialogHeader>
-            <DialogTitle>Edit profile</DialogTitle>
-            <DialogDescription>
-              Make changes to your profile here. Click save when you're done.
-            </DialogDescription>
-          </DialogHeader>
-          <div className="flex w-full bg-zinc-100 justify-center items-center gap-5 p-5 rounded-sm">
-            {images.map((image, index) => (
-              <div
-                className="flex flex-col justify-between items-center gap-4"
-                key={index}
-              >
-                <img
-                  src={`${imgBaseSrc}/${image}`}
-                  alt="ganapati-bappa"
-                  className="w-24 h-24 object-contain"
-                />
-
-
-
-                {/* <Image key={index} src={imgBaseSrc + image} className="w-8" alt="ganapati-bappa" /> */}
-                <Button
-                  variant={"outline"}
-                  key={index}
-                  onClick={() => handleImageClick(index)}
-                >
-                  <PlusCircle size={18} />
-                </Button>
-              </div>
-            ))}
-          </div>
-        </DialogContent>
-      </Dialog>
-    </>
+    <Dialog open={visible} onOpenChange={onClose}>
+      <DialogContent className="md:max-w-[900px]">
+        <DialogHeader>
+          <DialogTitle>Select an Image</DialogTitle>
+          <DialogDescription>Choose an image to update your selection.</DialogDescription>
+        </DialogHeader>
+        <div className="flex bg-zinc-100 justify-center items-center gap-5 p-5 rounded-sm flex-wrap">
+          {images.map((image, index) => (
+            <div key={index} className="flex flex-col justify-between items-center gap-4">
+              <img
+                src={`${imgBaseSrc}/${image}`}
+                alt="ganapati-bappa"
+                width={96}
+                height={96}
+                className="object-contain rounded-md"
+              />
+              <Button variant="outline" onClick={() => handleImageClick(index)}>
+                <PlusCircle size={18} />
+              </Button>
+            </div>
+          ))}
+        </div>
+      </DialogContent>
+    </Dialog>
   );
 }
 
-function ImageSelector() {
-  const images = ["h1.png", "h2.png", "h3.png", "h4.png"];
-  const [modalVisible, setModalVisible] = useState(false);
-  const [selectedImage, setSelectedImage] = useState<boolean | string>(
-    `${imgBaseSrc}/h3.png`
-  );
 
-  const handleEditClick = (e: any) => {
-    e.preventDefault();
-    setModalVisible(true);
-  };
-  const handleCloseModal = () => {
-    setModalVisible(false);
-  };
+function ImageSelector({
+  initialValue,
+  onImgChange,
+}: {
+  initialValue: string;
+  onImgChange: (src: string | null) => void;
+}) {
+  const images = [
+    "h1.png",
+    "h2.png",
+    "h3.png",
+    "h5.jpg",
+    "h6.jpg",
+    "8.png",
+    "9.png",
+    "12.png",
+    "15.png",
+    "16.png",
+  ];
+  
+  const [modalVisible, setModalVisible] = useState(false);
+  
+
+const [selectedImage, setSelectedImage] = useState<string | null>(
+  initialValue
+);
+console.log(initialValue);
+
+  useEffect(() => {
+    
+    onImgChange(selectedImage);
+  }, [selectedImage]);
+
+
+  
+
+
+
+
+  const handleEditClick = (e:any) =>{
+    e.preventDefault()
+    e.stopPropagation()
+  
+     setModalVisible(true)
+    }
+  const handleCloseModal = () => setModalVisible(false);
 
   const handleImageClick = (index: number) => {
     setSelectedImage(`${imgBaseSrc}/${images[index]}`);
     handleCloseModal();
   };
 
-  const handleDelete = (e: any) => {
-    e.preventDefault();
-    setSelectedImage(false);
-  };
-
-  const { setForm, form } = useForm();
-  useEffect(() => {
-    const newForm = {
-
-      selectedImage
-    }
-    const oldForm = structuredClone(form);
-    // localStorage.setItem
-    setForm({ ...oldForm, ...newForm });
-  }, [selectedImage])
+  
+  const handleDelete = () => setSelectedImage(null);
 
 
   return (
     <div className="flex flex-col items-center justify-center">
-      {selectedImage && (
-        <>
-          <img
-            src={selectedImage as string}
-            alt=""
-            height={100}
-            width={100}
-            className="w-24"
-          />
-        </>
+      {selectedImage ? (
+        <img src={selectedImage} alt="Selected" width={100} height={100} className="rounded-md" />
+      ) : (
+        <p className="text-gray-500">No image selected</p>
       )}
-      <div className="m-4 ">
-        <div className="flex gap-2">
-          {selectedImage && (
-            <Button variant={"default"} onClick={handleDelete}>
-              <TrashIcon size={16} />
-            </Button>
-          )}
-          <Button variant={"default"} onClick={handleEditClick}>
-            <EditIcon size={16} />
+      <div className="m-4 flex gap-2">
+        {selectedImage && (
+          <Button variant="default" onClick={handleDelete}>
+            <TrashIcon size={16} />
           </Button>
-        </div>
-
-        <ImageSelectorModal
-          visible={modalVisible}
-          onClose={handleCloseModal}
-          images={images}
-          handleImageClick={handleImageClick}
-        />
+        )}
+        <Button variant="default" onClick={handleEditClick}>
+          <EditIcon size={16} />
+        </Button>
       </div>
+
+      <ImageSelectorModal
+        visible={modalVisible}
+        onClose={handleCloseModal}
+        images={images}
+        handleImageClick={handleImageClick}
+      />
     </div>
   );
 }

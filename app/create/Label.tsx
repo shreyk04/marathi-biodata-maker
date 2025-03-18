@@ -11,7 +11,6 @@ import { useEffect, useState } from "react";
 import InputWithTranslator from "./InputWithTranslator";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useForm } from "../Context/store";
 
 export const Label = ({ labels, onLabelChange, isLabelStatic, initialValue }: { labels: string[], onLabelChange: any, isLabelStatic?: boolean, initialValue: string }) => {
   const isEmty = labels.length == 0;

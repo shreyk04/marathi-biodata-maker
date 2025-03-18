@@ -5,11 +5,11 @@ import { Label } from "./Label";
 import DatePicker from "./DatePicker";
 import InputWithTranslator from "./InputWithTranslator";
 import { formvalues } from "./formValues";
-import { useForm } from "../Context/store";
-import { getSavedFrom } from "./utils";
+import { useForm } from "../_context/store";
+import { getSavedFormData } from "./utils";
 import { DateSelector } from "./DateSelector";
 import MobileInput from "./MobileInput";
-import UploadPhoto from "./UploadPhoto";
+
 
 const translate = async ({ text }: { text: string }) => {
   try {
@@ -51,21 +51,31 @@ function FormField({ fieldData }: { fieldData: FormFieldType }) {
   const { labels, input, isLabelStatic, id } = fieldData;
   const [labelValue, setLabelValue] = useState(labels[0]);
   const [inputValue, setInputValue] = useState("");
-  const { setForm, form } = useForm();
+  const { setForm } = useForm();
 
-  const savedForm = getSavedFrom();
+  const savedForm = getSavedFormData();
 
   const savedField = savedForm[id];
-  // console.log(savedField)
+  
 
   useEffect(() => {
-    const newForm = {
 
-      [id]: { label: labelValue, input: inputValue }
+
+    if(inputValue.trim()!==""){
+      const newForm = {
+
+        [id]: { label: labelValue, input: inputValue }
+      }
+      setForm((prevForm:any)=>({...prevForm,...newForm}))
+
+    }else{
+      setForm((prevForm:any)=>{
+        const updatedForm={...prevForm};
+        delete updatedForm[id]
+        return updatedForm
+      })
     }
-    const oldForm = structuredClone(form);
-    // localStorage.setItem
-    setForm({ ...oldForm, ...newForm });
+   
   }, [labelValue, inputValue])
 
 
@@ -81,3 +91,4 @@ function FormField({ fieldData }: { fieldData: FormFieldType }) {
 }
 
 export default FormField;
+

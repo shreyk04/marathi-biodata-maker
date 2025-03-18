@@ -78,7 +78,7 @@ function Importance() {
           what information includes in a biodata.
         </p>
         <p className="text-muted-foreground mb-2">
-          So let's see what information it contains.
+          So let&apos;s see what information it contains.
         </p>
         <p className="text-muted-foreground mb-2">
           The biodata format in Marathi contains the personal, family, and
@@ -154,8 +154,8 @@ function Importance() {
           whose biodata is to create.
         </p>
         <p className="text-muted-foreground mb-2">
-          It contains information such as the father's name, Occupation,
-          mother's name, total sisters, total married sisters, total brothers,
+          It contains information such as the father&apos;s name, Occupation,
+          mother&apos;s name, total sisters, total married sisters, total brothers,
           total married brothers, maternal uncle, and surnames of relatives.{" "}
         </p>
       </div>
