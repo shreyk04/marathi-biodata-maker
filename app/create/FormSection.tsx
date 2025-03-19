@@ -11,19 +11,7 @@ function FormSection({ sectionData }: { sectionData: FormSectionType }) {
   const fields = sectionData.fields;
   const labels = sectionData.titles;
 
-  // useEffect(() => {
-  //   if (typeof window !== "undefined") {
-  //     const savedForm = getSavedFormData();
-  //     setForm((prevForm: any) => ({
-  //       ...prevForm,
-  //       ...savedForm,
-  //       labels,
-  //     }));
-  //   }
-  //   console.log(labels);
-    
-  // }, [ labels]);
-
+ 
 
  
   return (

@@ -30,11 +30,9 @@ const FormInput = ({ inputData, onChange, initialValue }: { inputData: FormField
   if (type == "select") return <Label labels={values || []} onLabelChange={(e: any) => onChange(e)} initialValue={initialValue} />;
 
   if (type == "date")
-    // return <DatePicker onDateChange={(data: any) => onChange(data)} />;
     return <DateSelector onDateChange={(data: any) => onChange(data)} props={{ defaultValue: initialValue }} />
 
   if (type === "tel") return <MobileInput props={{ defaultValue: initialValue }} placeholder={placeholder} onMobileNumberChange={(data: any) => onChange(data)} />;
-  // if (type === "file") return <UploadPhoto />;
 
 
   return (

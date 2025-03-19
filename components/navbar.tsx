@@ -6,10 +6,9 @@ import { Menu } from "lucide-react";
 
 function Navbar() {
   return (
-    <nav className=" bg-zinc-50 shadow-md flex justify-between p-1">
-      <Link href="/" className="logo text-primary p-2 rounded-sm">
-        MARATHI BIODATA MAKER
-      </Link>
+    <nav className=" bg-zinc-50 shadow-md flex justify-between p-1 text-[#AE1438]">
+      <Link href="/" className="logo text-[#AE1438] p-2 rounded-sm">
+      Unique Marathi Biodata Creator      </Link>
       <div className="nav-items hidden sm:flex text-secondary font-light  items-center gap-4">
         <Link href={"/"} className={cn(buttonVariants({ variant: "link" }))}>
           Home
@@ -17,12 +16,11 @@ function Navbar() {
         <Link href={"/"} className={cn(buttonVariants({ variant: "link" }))}>
           Contact Us
         </Link>
-        <Link href={"/"} className={cn(buttonVariants({ variant: "link" }))}>
+        {/* <Link href={"/"} className={cn(buttonVariants({ variant: "link" }))}>
           Search By Religion
-        </Link>
+        </Link> */}
       </div>
       <div className="sm:hidden flex  items-center">
-        {/* <img class=" w-6 h-6 mr-4 cursor-pointer" src="./public/img/icons8-search-50 (1).png" alt=""/> */}
         <Menu />
       </div>
     </nav>

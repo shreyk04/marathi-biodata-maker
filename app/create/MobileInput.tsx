@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react'
 
 function MobileInput({ onMobileNumberChange, props }: { onMobileNumberChange: any, placeholder: any, props: any }) {
     const defaultMob = props?.defaultValue;
-    // console.log("mobile number is #### ", defaultMob);
 
     const [mobileNumber, setMobileNumber] = useState(props?.defaultValue || "")
-    // console.log("mobile number is #### ", mobileNumber);
 
     const handleMobChange = (e: any) => {
         const value = e.target.value;
@@ -13,7 +11,6 @@ function MobileInput({ onMobileNumberChange, props }: { onMobileNumberChange: an
 
             setMobileNumber(value)
         }
-        // console.log("mobile number is #### ", mobileNumber);
 
     }
     useEffect(() => {
@@ -22,7 +19,6 @@ function MobileInput({ onMobileNumberChange, props }: { onMobileNumberChange: an
     }, [mobileNumber])
     return (
         <div>
-            {/* <input type="tel" className="input" value={mobileNumber} onChange={handleMobChange} /> */}
             <input
                 type="tel"
                 pattern="[0-9]{10}"

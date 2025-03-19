@@ -34,13 +34,7 @@ export const biodataForm: FormSectionsType = [
           placeholder: "जन्म स्थळ",
         }
       },
-      // {
-      //     id: "personal5",
-      //   labels: ["नावरस नाव", "रास नाव", "जन्म नाव"],
-      //   input: {
-      //     placeholder: "नावरस नाव/जन्म नाव",
-      //   }
-      // },
+    
       {
         id: "caste",
         labels: ["धर्म", "जात"],

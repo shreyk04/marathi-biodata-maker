@@ -3,7 +3,6 @@ export type FormFieldInputType = {
   placeholder?: string;
   type?: "input" | "date" | "select"|"number"|"tel"
   values?: string[]
-// value?:string
 
 
 }

@@ -1,14 +1,13 @@
 "use client";
 
 import React, { useCallback, useEffect } from "react";
-import { biodataForm } from "./FormData"; // Ensure the path is correct
-import FormSection from "./FormSection"; // Ensure the path is correct
-import InputWithTranslator from "./InputWithTranslator"; // Ensure the path is correct
-import { useForm } from "../_context/store"; // Ensure the path is correct
+import { biodataForm } from "./FormData"; 
+import FormSection from "./FormSection"; 
+import InputWithTranslator from "./InputWithTranslator"; 
+import { useForm } from "../_context/store"; 
 import ImageSelector from "./ImageSelctor";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { getSavedFormData } from "./utils";
 import { useTemplate } from "../_context/TemplateContext";
 import UploadPhoto from "./UploadPhoto";
 
@@ -24,8 +23,7 @@ const Header = () => {
         selectedImage: e,
       }));
     }
-    // [setForm]
-  // );
+   
 
   const handleInputChange = (e: any) => {
     setForm((form: any) => ({

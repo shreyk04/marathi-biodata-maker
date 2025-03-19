@@ -99,5 +99,55 @@ export const Templates = [
       form: dummyBiodataList[0]
 
    
+    },
+    {
+      
+      id: 10,
+  
+      component: TemplateRender,
+      props: { backgroundImageSrc: "/images/frame-10.png", height: "80vh" ,left_offset:"10px", withPhoto : false },
+      form: dummyBiodataList[0]
+
+   
+    },
+    {
+      
+      id: 11,
+  
+      component: TemplateRender,
+      props: { backgroundImageSrc: "/images/frame-11.jpg", height: "80vh" ,left_offset:"10px", withPhoto : true },
+      form: dummyBiodataList[1]
+
+   
+    },
+    {
+      
+      id: 12,
+  
+      component: TemplateRender,
+      props: { backgroundImageSrc: "/images/frame-12.png", height: "80vh" ,left_offset:"10px", withPhoto : true },
+      form: dummyBiodataList[1]
+
+   
+    },
+    {
+      
+      id: 13,
+  
+      component: TemplateRender,
+      props: { backgroundImageSrc: "/images/frame-13.png", height: "80vh" ,left_offset:"10px", withPhoto : true },
+      form: dummyBiodataList[0]
+
+   
+    },
+    {
+      
+      id: 14,
+  
+      component: TemplateRender,
+      props: { backgroundImageSrc: "/images/frame-14.png", height: "80vh" ,left_offset:"10px", withPhoto : true },
+      form: dummyBiodataList[1]
+
+   
     }
   ]
