@@ -29,7 +29,7 @@ function InputWithTranslator({
   onChange?: any;
 }) {
   const [inputText, setInputText] = useState(props?.defaultValue || "");
-  const [translatedOptions, setTranslatedOptions] = useState([]);
+  const [translatedOptions, setTranslatedOptions] = useState<string[]>([]);
   const [fetchingTransaltion, setFetchingTranslations] = useState(false);
 
   useEffect(() => {
@@ -44,7 +44,8 @@ function InputWithTranslator({
       setFetchingTranslations(true);
       const result = await translate({ text });
       setFetchingTranslations(false);
-      setTranslatedOptions(result?.[1]?.[0]?.[1] || []);
+      const tranlationList=result?.[1]?.[0]?.[1] || []
+      setTranslatedOptions([...tranlationList,inputText]);
     } else {
       setTranslatedOptions([]);
     }
@@ -59,6 +60,13 @@ function InputWithTranslator({
         value={inputText}
         autoComplete="off"
         placeholder={placeholder}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") e.preventDefault(); // Prevent form submission
+        }}
+        onFocus={() => setTranslatedOptions([...translatedOptions, inputText])} // Show modal when focusing
+
+        onBlur={() => setTimeout(() => setTranslatedOptions([]), 200)} // Hide modal when clicking outside
+
       />
       <Button variant="ghost" role="combobox" className="w-fit inline-block opacity-35 absolute right-0">
         <Languages size={16} />
