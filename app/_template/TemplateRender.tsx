@@ -28,6 +28,22 @@ function TemplateRender({
   const [uploadedPhoto, setUploadedPhoto] = useState<string | null>(null);
   const router = useRouter();
 
+  // this is working fine when width is greater than height
+  const [isPortait, setIsPortait] = useState(window.innerHeight > window.innerWidth);
+  console.log("isPortait", isPortait);
+
+  
+
+  const dimensionsStyle = {
+        height: isPortait ? "unset" :"80vh",
+        width: isPortait ? "80vw" :"unset",
+      };
+
+  
+  const handleResize = ()=>{
+    setIsPortait(window.innerHeight > window.innerWidth);
+  }
+
   // const uploadedPhoto = localStorage.getItem("uploadedImage") || "";
 
   useEffect(() => {
@@ -37,6 +53,17 @@ function TemplateRender({
       setUploadedPhoto(savedImage);
     }
   }, []);
+
+
+  useEffect(()=>{
+
+    window.addEventListener("resize",handleResize);
+    
+    return ()=>{
+      window.removeEventListener("resize",handleResize);
+    }
+
+  },[])
 
   const templateRef = useRef<HTMLDivElement>(null);
 
@@ -83,19 +110,22 @@ function TemplateRender({
   }
   console.log(form);
 
+  
+
   return (
     <div
-      className={`w-96 h-[80vh] relative   mx-auto px-8  rounded-lg `}
+      className={`aspect-[0.7] relative bg-red-100 top-0  mx-auto px-8  rounded-lg `}
       ref={templateRef}
       style={{
-        backgroundImage: `url(${backgroundImageSrc})`,
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "contain",
-        minHeight: height || "100vh", 
-        height: "auto",
+        ...dimensionsStyle,
+        backgroundColor:"green"
       }}
     >
+      <div className="absolute top-0 left-0 w-full h-full">
+        <img
+        style={dimensionsStyle}
+        src={backgroundImageSrc} className="aspect-[0.7]"/>
+      </div>
       <div className={`  h-full w-full ${form.selectedImage?"pt-0":"pt-10"} `}>
         {withPhoto && (
           <div
@@ -116,7 +146,7 @@ function TemplateRender({
           </div>
         )}
         <div
-          className=" text-center mb-2 flex flex-col justify-center items-center w-full "
+          className=" text-center  flex flex-col justify-center items-center w-full "
           style={{ fontSize: "10px" }}
         >
           {form.selectedImage && (
@@ -138,7 +168,7 @@ function TemplateRender({
           {/* {
                     imgUrl &&
 
-                    <div className='w-24 h-32  border-2 border-slate-700 absolute top-0 right-0 '>
+                    <div className=*'w-24 h-32  border-2 border-slate-700 absolute top-0 right-0 '>
                         <img src={imgUrl} alt="" className='w-full h-full object-cover' />
                     </div>
                 } */}
@@ -152,7 +182,7 @@ function TemplateRender({
             return (
               <div
                 key={key}
-                className="flex text-[7px]"
+                className="flex text-[7px] "
                 style={{ paddingLeft: left_offset }}
               >
                 <h2 className="w-[25%] ml-5 ">{field.label}</h2>
