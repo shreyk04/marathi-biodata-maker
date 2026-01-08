@@ -32,7 +32,7 @@ function UploadPhoto() {
   return (
     <div className="flex flex-col items-center space-y-4">
       {/* Modern Upload Button */}
-      <label className="relative flex items-center justify-center px-5 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-700 transition duration-300 cursor-pointer">
+      <label className="relative flex items-center justify-center px-5 py-2 mt-4 bg-blue-600 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-700 transition duration-300 cursor-pointer">
         <input
           type="file"
           name="file"

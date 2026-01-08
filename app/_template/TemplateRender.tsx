@@ -114,7 +114,7 @@ function TemplateRender({
 
   return (
     <div
-      className={`aspect-[0.7] relative bg-red-100 top-0  mx-auto px-8  rounded-lg `}
+      className={`aspect-[0.7] relative top-0  mx-auto px-8  rounded-lg `}
       ref={templateRef}
       style={{
         ...dimensionsStyle,
